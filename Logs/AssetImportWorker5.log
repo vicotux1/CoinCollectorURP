@@ -1,0 +1,19 @@
+Using pre-set license
+Desktop is 1440 x 900 @ 60 Hz
+
+ COMMAND LINE ARGUMENTS:
+Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker5
+-projectPath
+/home/victor/UnityP/CoinCollectorURP
+-logFile
+Logs/AssetImportWorker5.log
+-srvPort
+36395
+Successfully changed project path to: /home/victor/UnityP/CoinCollectorURP
+/home/victor/UnityP/CoinCollectorURP
+Using Asset Import Pipeline V2.
