@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,12 +17,11 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnMove(InputValue movementValue)
-    {
-        Vector2 movementVector = movementValue.Get<Vector2>();
+    private void OnMove(){
 
-        movementX = movementVector.x;
-        movementY = movementVector.y;
+        movementX = Input.GetAxis("Horizontal");
+        movementY = Input.GetAxis("Vertical");
+
     }
 
     private void FixedUpdate()

@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour{
     [SerializeField] PlayerMove Player;
     private float movementY,movementX;
 
-    private void OnMove(InputValue movementValue)
-    {
-        Vector2 movementVector = movementValue.Get<Vector2>();
+    private void OnMove(){
 
-        movementX = movementVector.x;
-        movementY = movementVector.y;
+        movementX = Input.GetAxis("Horizontal");
+        movementY = Input.GetAxis("Vertical");
 
         
     } 
