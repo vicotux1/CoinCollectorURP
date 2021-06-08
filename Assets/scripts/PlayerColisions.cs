@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class PlayerColisions : MonoBehaviour{
 
-public PlayerMove move;
-//public 
-//public GMLives Lives;
+[SerializeField]private Ball_move move;
+private void Awake() {
+	//move= GetComponent<Ball_move>();
+}
 void OnTriggerEnter(Collider other){
         if (other.tag == "Enemy"){
 			move.Reset();
 			Debug.Log("trigger");
-			  GMLives.GM_Lives.life(-1);
+			GMLives.GM_Lives.life(-1);
 			}
 		}
 

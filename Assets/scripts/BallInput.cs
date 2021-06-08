@@ -1,21 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
+    public class BallInput: MonoBehaviour{
+        [SerializeField] string InputX="Horizontal", InputY="Vertical", Jump="Fire1";
+        //[SerializeField]
+        private Ball_move ball; 
 
-public class BallInput: MonoBehaviour{
-    [SerializeField] Ball_move Player;
-    private float movementY,movementX;
+        private Vector3 move;
 
-    private void OnMove(float moveX,float moveY)
-    {
+        private Transform cam; 
+        private Vector3 camForward; 
+        private bool jump;
 
-        movementX = moveX;
-        movementY = moveY;
+        private void Awake(){
+            if (Camera.main != null){
+                cam = Camera.main.transform;
+            }
+        ball= GetComponent<Ball_move>();    
+        }
 
+
+        private void Update(){
+        float h = Input.GetAxis(InputX);
+        float v = Input.GetAxis(InputY);
+        jump = Input.GetButton(Jump);
+
+        if (cam != null){
+                camForward = Vector3.Scale(cam.forward, new Vector3(1, 0, 1)).normalized;
+                move = (v*camForward + h*cam.right).normalized;
+            }
+            else{
+                move = (v*Vector3.forward + h*Vector3.right).normalized;
+            }
+        }
+
+
+        private void FixedUpdate() {
         
-    } 
-    private void FixedUpdate(){
-        Player.Move(movementX, movementY);
+            ball.Move(move, jump);
+            jump = false;
+        }
     }
-}
