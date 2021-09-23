@@ -12,7 +12,7 @@ public class Menu : MonoBehaviour
 	public AudioClip Button;
 	public GameObject mainmenu,options;
 	private void Awake(){
-		cursorfalse();
+		//cursorfalse();
 		if(_MenuID==1){
 			mainmenuOn();
 		}if(_MenuID==2){
